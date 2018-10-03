@@ -1,0 +1,383 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to TypeScript for JavaScript Developers</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<style>
+		.left {
+			text-align: left;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<section>
+				<h1>Introduction to TypeScript</h1>
+				<p>(👩🏾‍💻&nbsp;coding JavaScript without the pain&nbsp;👨🏼‍💻)</p>
+				<p><a href="https://twitter.com/keshshen" target="_blank">@keshshen</a></p>
+
+			</section>
+
+			<section>
+				<img src="./images/profile1_sm.jpg" style="float: right; width: 120px; height: 120px; border-radius: 120px;" />
+				<h2>Keshan Nageswaran</h2>
+				<blockquote>Senior Software Engineer at Zone24x7</blockquote>
+				<ul>
+					<li>💾&nbsp;2+ Years Professional Experience</li>
+					<li>📝&nbsp;Reading for Masters at University of Moratuwa</li>
+					<li>🎤&nbsp;Speaker</li>
+					<li>🥑&nbsp; 90% plant-based diet and runner &nbsp;🏃🏻</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2> Agenda </h2>
+				<ul>
+					<li>🔐&nbsp; Evolution of THE WEB </li>
+					<li>🔐&nbsp; Evolution of Browser Scripting Languages </li>
+					<li>🔐&nbsp; Origin of JavaScript </li>
+					<li>🔐&nbsp; ECMA Script Standarization </li>
+					<li>🔐&nbsp; Why TypeScript? </li>
+					<li>🔐&nbsp; Environment Setup </li>
+					<li>🔐&nbsp; TypeScript - Basic Syntax </li>
+					<li>🔐&nbsp; TypeScript - Types | Variables </li>
+					<li>🔐&nbsp; TypeScript - Operators </li>
+					<li>🔐&nbsp; Demo Time </li>
+				</ul>
+			</section>
+			<section>
+				<section>
+					<h2>Back in 1994</h2>
+					<img style="border: none;" src="./images/mosaic.png" />
+				</section>
+				<section>
+					<h2>Netscape 1.0</h2>
+					<img style="border: none;" src="./images/netscape.PNG" />
+				</section>
+				<section>
+					<h2>Internet Explorer 1.0</h2>
+					<img style="border: none;" src="./images/internet_explorer.PNG" />
+				</section>
+				<section>
+					<h2>Evolution of THE WEB</h2>
+					<img style="border: none;" src="./images/Theevolutionoftheweb.jpg" />
+				</section>
+				<section>
+					<h2>Boom of WEB 2.0</h2>
+					<img style="border: none;" src="./images/web_2.PNG" />
+				</section>
+			</section>
+			<section>
+				<h2>Evolution of Browser Scripting Languages</h2>
+				<img style="border: none;" src="./images/evolution.png" />
+			</section>
+
+			<section>
+				<h2>Origin of JavaScript</h2>
+				<ul>
+					<li>Developed by Brendan Eich while working for Netscape.</li>
+					<li>First version was completed in ten days in order to accomdate the Navigator 2.0 Beta release schedule</li>
+					<li>First release Netscape Navigator 2.0 (Sep/1995)</li>
+					<li>Incorporate logic and action to HTML</li>
+					<li>Main focus on simplicity, to be reachable for "non-exports"</li>
+					<li>Mocha -> LiveScript -> JavaScript</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>ECMA Script Standarization</h2>
+				<ul>
+					<li>Submitted by Netscape in Novemeber 1996</li>
+					<li>First edition published in June 1997. ECMA-262 specification</li>
+					<li>2nd edition published one year later</li>
+					<li>3rd edition published in Decemeber 1999</li>
+					<li>4th was never completed, 5th released in December of 2009</li>
+					<li>Currently the standard is 6, released in June 2015</li>
+					<li>http://www/ecmascript.org/</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>What's Good about JavaScript</h2>
+				<ul>
+					<li>Enhance web pages </li>
+					<li>Data entry validation </li>
+					<li>Single page application </li>
+					<li>Unburdening busy servers </li>
+					<li>It's everywhere </li>
+					<li>Flexibility (small learning curve) </li>
+					<li>Huge amount of libraries</li>
+				</ul>
+			</section>
+
+			<section>
+				<section>
+					<h2>What's Not so Good about JavaScript</h2>
+					<ul>
+						<li>Design errors </li>
+						<li>Inconsistent implementation </li>
+						<li>Bad books </li>
+						<li>Challenging to manage on large projects </li>
+						<li>It's everywhere </li>
+						<li>Flexibility (a lot of crappy code) </li>
+						<li>Lack of modularity</li>
+						<li>Verbose patterns (IIFE)</li>
+						<li>In Summary: JavaScript development scales badly</li>
+					</ul>
+				</section>
+				<section>
+					<h2>The Good parts</h2>
+					<img style="border: none;" src="./images/good_parts.PNG" />
+				</section>
+				<section>
+					<h2>Not Pretty</h2>
+					<img style="border: none;" src="./images/not_pretty.PNG" />
+				</section>
+				<section>
+					<h2>Debugging JavaScript</h2>
+					<img style="border: none;" src="./images/missing_curly.PNG" />
+				</section>
+			</section>
+
+
+			<section>
+				<section>
+					<h1> Wish List</h1>
+					<ul>
+						<li>Scalable HTML5 clientside development </li>
+						<li>Modular development </li>
+						<li>Easily learnable for Java Developers </li>
+						<li>Non-invasive (existing libs, browser support) </li>
+						<li>Long term vision </li>
+						<li>Clean JS output (exit strategy) </li>
+					</ul>
+				</section>
+				<section>
+					<h2>TypeScript for the Rescue</h2>
+					<ul>
+						<li>Typed Superset of JavaScript </li>
+						<li>JavaScript, but built for more scale </li>
+						<li>Prevents Trivial errors </li>
+						<li>Makes code more readable </li>
+						<li>Discovers the impact of change </li>
+						<li>No special runtime </li>
+						<li>Compiles to Ecmascript</li>
+						<li>Productivity booster</li>
+					</ul>
+				</section>
+				<section>
+					<h2>TypeScript Components</h2>
+					<img style="position:relative; float: left; border: none;" src="./images/typescript_components.PNG" />
+					<br>
+					<br>
+					<ul>
+						<li>Language </li>
+						<li>TypeScript Compiler </li>
+						<li>TypeScript Language and Service </li>
+						<li>Declaration files</li>
+					</ul>
+					<img style="position:relative; float: right; border: none;" src="./images/typescript_ecmascript.PNG" />
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>Backend to Frontend</h2>
+					<img style="float: left; border: none;" src="./images/Java-backend.PNG" />
+					<br>
+					<br>
+					<br>
+					<p>I like backend languages like Java, C#. </p>
+					<p>I want to learn JavaScript but don't lose some things that I like from my languages.</p>
+				</section>
+				<section>
+					<h2>Advanced Developer </h2>
+					<img style="float: left; border: none;" src="./images/advanced_frontend.PNG" />
+					<br>
+					<br>
+					<br>
+					<p>I consider that I know a lot about frontend and JavaScript I start feeling that I need something more, without
+						stop doing JavaScript. </p>
+
+				</section>
+				<section>
+					<h2>Beginner </h2>
+					<img style="float: left; border: none;" src="./images/beginners.PNG" />
+					<br>
+					<br>
+					<br>
+					<p>I'm a beginner programmer, I want to learn JavaScript. Probably start with TypeScript is the best decision. </p>
+
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>Real World</h2>
+					<h3 style="color: red">🔎&nbsp;Discovery</h3>
+					<p>Intent is clearer with types and interfaces.</p>
+				</section>
+				<section>
+					<h2>Real World</h2>
+					<h3 style="color: orange">📄&nbsp;Documentation</h3>
+					<p>Libraries make it easier to discover and learn how to use APIs.</p>
+				</section>
+				<section>
+					<h2>Real World</h2>
+					<h3 style="color: yellow"><span id="versionSpan">🥇</span> Version Safety</h3>
+					<p>Use the latest language syntax even when targeting older browsers.</p>
+				</section>
+				<section>
+					<h2>Real World</h2>
+					<h3 style="color: green">🔐&nbsp;Development Time Security</h3>
+					<p>Less "fat-finger", catch bugs earlier in the cycle.</p>
+				</section>
+				<section>
+					<h2>Real World</h2>
+					<h3 style="color: blue">🚑&nbsp;Scope Safety</h3>
+					<p>Modules, Classes, and Lambdas take care of this.</p>
+				</section>
+				<section>
+					<h2>Real World</h2>
+					<h3 style="color: indigo">🤼🤸‍⛹️🏌️‍&nbsp;Team Scale</h3>
+					<p>Easier for multiple teams and members to work in parallel.</p>
+				</section>
+				<section>
+					<h2>Real World</h2>
+					<h3 style="color: violet">🎢&nbsp;Increased Velocity</h3>
+					<p>Team had 4x velocity with TypeScript vs. just JavaScript. Oh, and
+						<strong>the Angular team uses it, for goodness' sake!</strong>
+					</p>
+				</section>
+			</section>
+
+			<section>
+				<h2> Environment Setup</h2>
+				<ul>
+					<li>Node.js is an open source, cross-platform runtime environment. Download NodeJs from
+						https://nodejs.org/en/download/. Type "node -v" </li>
+					<li>Type the following command in the terminal window to install TypeScript. "npm install -g typescript". Type
+						"tsc -v" </li>
+					<li>Install Open Source Visual Studio Code from https://code.visualstudio.com/download </li>
+					<li>We gonna use Notepad++ | Notepad for this session </li>
+				</ul>
+			</section>
+
+			<section>
+				<section>
+					<h2>Identifiers in TypeScript</h2>
+					<ul>
+						<li>Includes characters and digitis, not begin with digit</li>
+						<li>Identifier cannot include special characters, except (_) or ($)</li>
+						<li>Identifer cannot be a keyword</li>
+						<li>Should be unique</li>
+						<li>Should be case-sensitive</li>
+						<li>Should not contain spaces</li>
+					</ul>
+					<img style="position:relative; float: right; border: none;" src="./images/identifiers.PNG" />
+				</section>
+				<section>
+					<h2>Keywords in TypeScript</h2>
+					<img style="position:relative; border: none;" src="./images/keywords.PNG" />
+				</section>
+				<section>
+					<h1>Statements & Comments</h1>
+					<ul>
+						<li>TypeScript ignores spaces, tabs and newlines</li>
+						<li>Each line of instruction is called statement. Semicolons are optional, except more than one statement
+							occupies a single line.</li>
+						<li>Single and Multi line comments are available</li>
+					</ul>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>Types in TypeScript</h2>
+					<img style="position:relative; border: none;" src="./images/types.PNG" />
+				</section>
+				<section>
+					<h2>Variables in TypeScript </h2>
+					<img style="position:relative; border: none;" src="./images/variable_dec.PNG" />
+				</section>
+			</section>
+
+			<!-- <section>
+				<h2>Wat?!</h2>
+				<code>
+							<pre id="wat-text"></pre>
+						</code>
+				<button id="wat-button">Wat?</button>
+				<code>
+							<pre id="wat-result">...</pre>
+						</code>
+			</section> -->
+
+			<section>
+				<h2>Demo Time!</h2>
+				<img style="border: none;" src="./images/demo.png" />
+				<p> Hello World program write and Execute in JavaScript</p>
+			</section>
+
+			<section>
+				<h2 id="questions">❓&nbsp;Questions&nbsp;❔</h2>
+			</section>
+
+
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+	<script src="js/wat.js"></script>
+	<script src="js/advocate.js"></script>
+	<script src="js/questions.js"></script>
+	<script src="js/version.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide',
+
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+	</script>
+</body>
+
+</html>
