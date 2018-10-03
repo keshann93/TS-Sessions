@@ -3,11 +3,11 @@
 This project contains series of sessions on TypeScript targeting the beginners. Each Session would have presentation slides, sample code discussed during the session and take-home task.
 
 This project contains:
-* The presentation slides
+* The presentation slides - Either can use Run Presentation Link and view presentation slides if not clone the repository and navigate to 'Session1/presentation/intrototypescript.html' and open the html in browser to view it.
 * Sample code (coding folder) 
 * todo - should try out at home.
 
-[Run the Presentation](https://github.com/KeshShan/TS-Sessions/blob/master/Session1/presentation/intrototypescript.html).
+[Run the Presentation](https://keshshan.github.io/TS-Session/Session1/presentation/intrototypescript.html).
 
 ## Examples
 
