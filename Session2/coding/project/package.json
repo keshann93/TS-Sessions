@@ -1,0 +1,20 @@
+{
+    "name": "typescript-node-examples",
+    "version": "1.0.0",
+    "description": "A hands-on demonstration of TypeScript",
+    "main": "index.js",
+    "scripts": {
+      "tsc": "tsc",
+      "start": "tsc --watch",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+      "typescript",
+      "javascript"
+    ],
+    "author": "Keshan",
+    "license": "MIT",
+    "dependencies": {
+      "typescript": "^2.5"
+    }
+  }

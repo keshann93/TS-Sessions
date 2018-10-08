@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "experimentalDecorators": true
+    },
+    "files": [
+        "index.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
