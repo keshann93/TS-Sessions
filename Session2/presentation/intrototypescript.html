@@ -1,0 +1,656 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Introduction to TypeScript for JavaScript Developers</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<style>
+		.left {
+			text-align: left;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<section>
+				<h2>Recap Session 1</h2>
+				<ul>
+					<li>Evolution of Web - Scripting languages</li>
+					<li>History of ECMA Script Standarization</li>
+					<li>Why Typescript</li>
+					<li>Environment setup</li>
+					<li>Basic syntax - Identifiers, Keywords, Statements </li>
+					<li>TypeScript - Types, Variables</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2> Agenda </h2>
+				<ul>
+					<li>🔐&nbsp; ECMA Script Standarization </li>
+					<li>🔐&nbsp; Types in TypeScript </li>
+					<li>🔐&nbsp; Built-in Type - Numbers </li>
+					<li>🔐&nbsp; Built-in Type - String </li>
+					<li>🔐&nbsp; Union </li>
+					<li>🔐&nbsp; User defined Type - Tuples </li>
+					<li>🔐&nbsp; User defined Type - Arrays </li>
+					<li>🔐&nbsp; Demo Time </li>
+				</ul>
+			</section>
+
+			<section>
+				<section>
+					<h1>ECMA Script Standarization</h1>
+					<ul>
+						<li>let & Constants</li>
+						<li>Template Strings</li>
+						<li>Fat arrow functions</li>
+						<li>Default function arguments</li>
+						<li>Spread operator</li>
+						<li>Array helpers ( foreach, map, filter, reduce, every and some, reduce, for..of)</li>
+					</ul>
+				</section>
+				<section>
+					<h2>
+						let
+					</h2>
+					<p>'let' is similar to 'var' but has scope. let is only accessible in the block level it is defined</p>
+					<p>
+						<i>
+							if (true) {let a = 40; console.log(a);} <br>
+							console.log(a);
+						</i>
+					</p>
+					<p>
+						<i>
+							let a = 50; let b = 100;<br>
+							if (true) { let a = 60;var c = 10;console.log(a/c); console.log(b/c); }<br>
+							console.log(c); console.log(a);
+						</i>
+					</p>
+
+				</section>
+				<section>
+					<h2>
+						const
+					</h2>
+					<p>'Const' is used to assign a constant value to the variable. And the value cannot be changed. Its fixed.</p>
+					<p>
+						<i>
+							const a = 50; <br>
+							a = 60; <br>
+							const b = "Constant variable"; <br>
+							b = "Assigning new value";
+						</i>
+					</p>
+					<p>
+						<i>
+							const LANGUAGES = ['Js', 'Ruby', 'Python', 'Go']; <br>
+							LANGUAGES = "Javascript"; <br>
+							LANGUAGES.push('Java'); <br>
+							console.log(LANGUAGES);
+						</i>
+					</p>
+				</section>
+				<section>
+					<h2>String Interpolation</h2>
+					<p>
+						Intuitive expression interpolation for single-line and multi-line strings.
+					</p>
+					<p>
+						<i>
+							var customer = { name: "Foo" } <br>
+							var card = { amount: 7, product: "Bar", unitprice: 42 } <br>
+							var message = "Hello " + customer.name + ",\n" + <br>
+							"want to buy " + card.amount + " " + card.product + " for\n" + <br>
+							"a total of " + (card.amount * card.unitprice) + " bucks?";
+						</i>
+					</p>
+
+				</section>
+				<section>
+					<h2>
+						Arrow function
+					</h2>
+					<p>
+						<i>
+
+							function oldOne() { console.log("Hello World..!");}
+							var newOne = () => {console.log("Hello World..!");}
+
+						</i>
+					</p>
+					<p>
+						<i>var newOne = ()</i> - The first part is just declaring a variable and assigning the function (i.e) () to it.
+						It
+						just says the variable is actually a function.
+					</p>
+					<p>
+						<i>=> {}</i> - Then the second part is declaring the body part of the function. The arrow part with the curly
+						braces
+						defines the body part.
+					</p>
+				</section>
+				<section>
+					<h2>Default Parameters</h2>
+					<p>Default parameters are parameters which are given by default while declaring a function. But it’s value can be
+						changed when calling the function.</p>
+					<p>
+						<i>
+							let Func = (a, b = 10) => { return a + b; } <br>
+							Func(20); <br>
+							Func(20, 50);
+
+						</i>
+					</p>
+				</section>
+				<section>
+					<h2>Spread attribute</h2>
+					<p>Spread attributes help to spread the expression as the name suggests. In simple words, it converts a list of
+						elements to an array and vice versa.</p>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>Types in TypeScript</h2>
+					<img style="position:relative; border: none;" src="./images/types.PNG" />
+				</section>
+				<section>
+					<h2>Any Type</h2>
+					<ul>
+						<li><b>any</b> data type is super type of all types in TypeScript</li>
+						<li>It denotes a dynamic type</li>
+						<li>Use of <b>any</b> type is equivalent to opting out of type checking for a variable</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Built-in types</h2>
+					<ul>
+						<li>Number - number - Represent both integers and fractions</li>
+						<li>String - string - Represent Unicode characters</li>
+						<li>Boolean - boolean - Represent logical values</li>
+						<li>Void - void - Function return types, non-returning functions</li>
+						<li>Null - null - Represents object value</li>
+						<li>Undefined - undefined - Value given, uninitialized variables</li>
+						<li><b>Note</b> There is no integer type in TypeScript</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Null and undefined - Are they same?</h2>
+					<p>The <b>null</b> and <b>undefined</b> cannot be used to reference the data type of a variable. They can only be
+						assigned as values to a variable</p>
+					<p>However, <i>null and undefined are not the same.</i> A variable initialized with undefined means that variable
+						has no value or object assigned to it.</p>
+					<p>While null means that the variable has been set to an object whose value is undefined</p>
+				</section>
+				<section>
+					<h2>User-defined Types</h2>
+					<p>User-defined types include Enumerations (enums), classes, interfaces, arrays and tuple.</p>
+				</section>
+
+			</section>
+
+			<section>
+				<section>
+					<h2>Built-in Type - Numbers</h2>
+					<ul>
+						<li>TypeScript supports numberic values as Number objects</li>
+						<li>A number object converts numeric literal to an instance of the number class</li>
+						<li>The number class acts as a wrapper and enables manipulations of numeric literals</li>
+						<li>Syntax <i>var new_number: number = new Number(value);</i></li>
+					</ul>
+				</section>
+				<section>
+					<h2>Properties & Descriptions</h2>
+					<ul>
+						<li><b>MAX_VALUE</b> - Largest possible number</li>
+						<li><b>MIN_VALUE</b> - The smallest possible number</li>
+						<li><b>NaN</b> - Equal to a value that is not a number</li>
+						<li><b>NEGATIVE_INFINITY</b> - A value less than MIN_VALUE</li>
+						<li><b>POSITIVE_INFINITY</b> - A value greater than MAX_VALUE</li>
+						<li><b>constructor</b> - Returns the object instance which is default number object</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Examples</h2>
+
+					<p><i>console.log("Maximum value that a number variable can hold: " + Number.MAX_VALUE); <br>
+							console.log("The least value that a number variable can hold: " + Number.MIN_VALUE);<br>
+							console.log("Value of Negative Infinity: " + Number.NEGATIVE_INFINITY);<br>
+							console.log("Value of Negative Infinity:" + Number.POSITIVE_INFINITY);</i></p>
+
+				</section>
+				<section>
+					<h2> Number Methods </h2>
+					<ul>
+						<li><b>toFixed()</b> - Formats a number with a specific number of digits to the right of the decimal</li>
+						<li><b>toPrecision()</b> - Defined how many total digits to display of a number. Negative precisions will throw
+							error</li>
+						<li><b>toString()</b> - Returns string representation of the number value. The base radix is passed between 2 and
+							36</li>
+						<li><b>valueOf()</b> - Returns numbers primitive value</li>
+						<li><b>toExponential(), toLocaleString() </b></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Examples - toFixed</h2>
+					<p>
+						<i>
+							var num1 = new Number(177.234); <br>
+							console.log("num1.toFixed() is "+num1.toFixed()) <br>
+							console.log("num1.toFixed(2) is "+num1.toFixed(2)) <br>
+							console.log("num1.toFixed(6) is "+num1.toFixed(6)) <br>
+						</i>
+					</p>
+
+				</section>
+
+				<section>
+					<h2>Examples - toPrecision</h2>
+					<p>
+						<i>
+							var num2 = new Number(7.123456);<br>
+							console.log(num2.toPrecision());<br>
+							console.log(num2.toPrecision(1));<br>
+							console.log(num2.toPrecision(2));
+						</i>
+					</p>
+
+				</section>
+
+				<section>
+					<h2>Examples - toString</h2>
+					<p>
+						<i>
+							var num3 = new Number(10); <br>
+							console.log(num3.toString()); <br>
+							console.log(num3.toString(2)); <br>
+							console.log(num3.toString(8));
+						</i>
+					</p>
+
+				</section>
+
+				<section>
+					<h2>Examples - valueOf</h2>
+					<p>
+						<i>
+							var num4 = new Number(10); <br>
+							console.log(num4.valueOf());
+						</i>
+					</p>
+
+				</section>
+
+			</section>
+
+			<section>
+				<section>
+					<h2>Built-in Type - Strings</h2>
+					<ul>
+						<li>String objects let you work with a series of characters</li>
+						<li>It wraps the string primitive data type with a number of helper methods</li>
+						<li>Syntax <i>var var_name: string = new String(string);</i></li>
+					</ul>
+				</section>
+				<section>
+					<h2>Properties & Descriptions</h2>
+					<ul>
+						<li><b>Constructor</b> - Returns a reference to the String function that created the object.</li>
+						<li><b>Length</b> - Returns the length of the string.</li>
+						<li><b>Prototype</b> - The prototype property allows you to add properties and methods to an object.</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Examples</h2>
+					<ul>
+						<li>
+							<p><i>
+									var str = new String( "This is string" );<br>
+									console.log("str.constructor is:" + str.constructor)
+								</i></p>
+						</li>
+						<li>
+							var uname = new String("Hello World"); <br>
+							console.log(uname); <br>
+							console.log("Length "+uname.length); <br>
+						</li>
+					</ul>
+
+				</section>
+				<section>
+					<h2> Number Methods </h2>
+					<ul>
+						<li><b>charAt()</b> - Returns the character at the specified index.</li>
+						<li><b>concat()</b> - Combines the text of two strings and returns a new string.</li>
+						<li><b>indexOf()</b> - Returns the index within the calling String object of the first occurrence of the
+							specified value, or -1 if not found.</li>
+					</ul>
+				</section>
+				<section>
+					<h2> Number Methods Cont </h2>
+					<ul>
+						<li><b>slice()</b> - Extracts a section of a string and returns a new string.</li>
+						<li><b>split()</b> - Splits a String object into an array of strings by separating the string into substrings.</li>
+						<li><b>substr()</b> - Returns the characters in a string beginning at the specified location through the
+							specified number of characters.</li>
+						<li><b>substring()</b> - Returns the characters in a string between two indexes into the string.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2> Number Methods Cont </h2>
+					<ul>
+						<li><b>toLowerCase()</b> - Returns the calling string value converted to lower case.</li>
+						<li><b>toString()</b> - Returns a string representing the specified object.</li>
+						<li><b>toUpperCase()</b> - Returns the calling string value converted to uppercase.</li>
+						<li><b>valueOf()</b> - Returns the primitive value of the specified object.</li>
+						<li><b>search(), charCodeAt(), lastIndexOf(), match(), localeCompare(), replace(), toLocaleLowerCase(),
+								toLocaleUpperCase(), localeCompare(), </b></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Examples - charAt</h2>
+					<p>
+						<i>
+							var str = new String("This is string");<br>
+							console.log("str.charAt(0) is:" + str.charAt(0));<br>
+							console.log("str.charAt(1) is:" + str.charAt(1));<br>
+							console.log("str.charAt(2) is:" + str.charAt(2));<br>
+						</i>
+					</p>
+
+				</section>
+
+				<section>
+					<h2>Examples - concat</h2>
+					<p>
+						<i>
+							var str1 = new String( "This is string one" );<br>
+							var str2 = new String( "This is string two" ); <br>
+							var str3 = str1.concat( str2 ); <br>
+							console.log("str1 + str2 : "+str3)
+						</i>
+					</p>
+
+				</section>
+
+				<section>
+					<h2>Examples - indexOf</h2>
+					<p>
+						<i>
+							var str1 = new String( "This is string one" ); <br>
+
+							var index = str1.indexOf( "string" ); <br>
+							console.log("indexOf found String :" + index ); <br>
+
+							var index = str1.indexOf( "one" ); <br>
+							console.log("indexOf found String :" + index );<br>
+						</i>
+					</p>
+
+				</section>
+
+				<section>
+					<h2>Examples - slice</h2>
+					<p>
+						<i>
+							var str = new String("Apples are round, and apples are juicy.");<br>
+							var sliced = str.slice(3, -2);<br>
+							console.log(sliced);<br>
+						</i>
+					</p>
+
+				</section>
+
+				<section>
+					<h2>Examples - split</h2>
+					<p>
+						<i>
+							var str = "Apples are round, and apples are juicy."; <br>
+							var splitted = str.split(" ", 3); <br>
+							console.log(splitted)
+						</i>
+					</p>
+
+				</section>
+
+				<section>
+					<h2>Examples - substr</h2>
+					<p>
+						<i>
+							var str: string = "Apples are round, and apples are juicy.";<br>
+							console.log("(1,2): " + str.substr(1,2));<br>
+							console.log("(-2,2): " + str.substr(-2,2));<br>
+							console.log("(1): " + str.substr(1));
+						</i>
+					</p>
+
+				</section>
+
+				<section>
+					<h2>Examples - substring</h2>
+					<p>
+						<i>
+							var str: string = "Apples are round, and apples are juicy."; <br>
+							console.log("(1,2): " + str.substring(1,2)); <br>
+							console.log("(0,10): " + str.substring(0, 10)); <br>
+							console.log("(5): " + str.substring(5));
+						</i>
+					</p>
+
+				</section>
+
+				<section>
+					<h2>Examples - toLowerCase</h2>
+					<p>
+						<i>
+							var str: string = "Apples are round, and Apples are Juicy."; <br>
+							console.log(str.toLowerCase( ))
+						</i>
+					</p>
+
+				</section>
+
+				<section>
+					<h2>Examples - toString</h2>
+					<p>
+						<i>
+							var str = "Apples are round, and Apples are Juicy."; <br>
+							console.log(str.toString( ));
+						</i>
+					</p>
+
+				</section>
+
+				<section>
+					<h2>Examples - toUpperCase</h2>
+					<p>
+						<i>
+							var str = "Apples are round, and Apples are Juicy."; <br>
+							console.log(str.toUpperCase( ));
+						</i>
+					</p>
+
+				</section>
+
+				<section>
+					<h2>Examples - valueOf</h2>
+					<p>
+						<i>
+							var str = new String("Hello world"); <br>
+							console.log(str.valueOf( ));
+						</i>
+					</p>
+
+				</section>
+
+			</section>
+
+			<section>
+				<h2> Union </h2>
+				<ul>
+					<li>TypeScript 1.4 gives programs the ability to combine one or two types. Union types are a powerful way to
+						express a value that can be one of the several types.</li>
+					<li>Two or more data types are combined using the pipe symbol (|) to denote a Union Type.</li>
+					<li>Syntax <i>Type1|Type2|Type3 </i> </li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Tuples</h2>
+				<ul>
+					<li>At times, there might be a need to store a collection of values of varied types. </li>
+					<li>Arrays will not serve this purpose. TypeScript gives us a data type called tuple that helps to achieve such a
+						purpose.</li>
+					<li>Syntax <i>var tuple_name = [value1,value2,value3,…value n];</i></li>
+					<li> Simple Tuple, Empty Tuple, Tuple Operation, Updating Tuple, Destructuring Tuple</li>
+				</ul>
+			</section>
+			<section>
+				<section>
+					<h2> Arrays </h2>
+					<ul>
+						<li>A variable declaration can only contain a single at a time.</li>
+						<li>Hence, the use of variables is not feasible when one needs to store a larger collection of values.</li>
+						<li>Variables in a program are allocated memory in random order, thereby making it difficult to retrieve/read the
+							values</li>
+						<li>Syntax <i>var array_name[:datatype] = [val1, val2, valn ..]; </i></li>
+					</ul>
+				</section>
+				<section>
+					<h2>Advantage of Arrays</h2>
+					<ul>
+						<li>
+							An array declaration allocates sequential memory blocks.
+						</li>
+						<li>Arrays are static.</li>
+						<li>Each memory block represents an array element</li>
+						<li>Array elements are identified by a unique integer/ index of the element.</li>
+						<li>Array element values can be updated or modified but cannot be deleted.</li>
+					</ul>
+				</section>
+				<section>
+					<h2> Array Methods </h2>
+					<ul>
+						<li><b>concat()</b> - Returns a new array comprised of this array joined with other array(s)</li>
+						<li><b>every()</b> - Returns true if every element in this array satisfies the provided testing function.</li>
+						<li><b>filter()</b> - Creates a new array with all of the elements of this array for which the provided filtering
+							function returns true.</li>
+					</ul>
+				</section>
+				<section>
+					<h2> Array Methods Cont </h2>
+					<ul>
+						<li><b>forEach()</b> - Calls a function for each element in the array.</li>
+						<li><b>indexOf()</b> - Returns the first (least) index of an element within the array equal to the specified
+							value, or -1 if none is found.</li>
+						<li><b>join()</b> - Joins all elements of an array into a string.</li>
+						<li><b>map()</b> - Creates a new array with the results of calling a provided function on every element in this
+							array.</li>
+					</ul>
+				</section>
+				<section>
+					<h2> Array Methods Cont </h2>
+					<ul>
+						<li><b>pop()</b> - Removes the last element from an array and returns that element.</li>
+						<li><b>push()</b> - Adds one or more elements to the end of an array and returns the new length of the array.</li>
+						<li><b>reduce()</b> - Apply a function simultaneously against two values of the array (from left-to-right) as to
+							reduce it to a single value.</li>
+						<li><b>reverse()</b> - Reverses the order of the elements of an array -- the first becomes the last, and the last
+							becomes the first.</li>
+						<li><b>some()</b> -Returns true if at least one element in this array satisfies the provided testing function.</li>
+						<li><b>sort(), splice(), toString(), slice(), shift()</b></li>	
+					</ul>
+				</section>
+			</section>
+
+			<!-- <section>
+				<h2>Wat?!</h2>
+				<code>
+							<pre id="wat-text"></pre>
+						</code>
+				<button id="wat-button">Wat?</button>
+				<code>
+							<pre id="wat-result">...</pre>
+						</code>
+			</section> -->
+
+
+			<section>
+				<h2>Demo Time!</h2>
+				<img style="border: none;" src="./images/demo.png" />
+				<p> Hello World program write and Execute in JavaScript</p>
+			</section>
+
+
+			<section>
+				<h2 id="questions">❓&nbsp;Questions&nbsp;❔</h2>
+			</section>
+
+			<section>
+				<h2> Take Home Questiosn</h2>
+				<ul>
+					<li>List compiler flags?</li>
+				</ul>
+			</section>
+
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+	<script src="js/wat.js"></script>
+	<script src="js/advocate.js"></script>
+	<script src="js/questions.js"></script>
+	<script src="js/version.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide',
+
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+	</script>
+</body>
+
+</html>

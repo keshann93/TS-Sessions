@@ -11,6 +11,10 @@ This project contains:
 
 The following category based examples are included in the sample code.
 
-* Basic Types 
-* Loops
-* Operatos
+* Arrays 
+* ECMA
+* Number
+* Project
+* String
+* Tuples
+* Unions
