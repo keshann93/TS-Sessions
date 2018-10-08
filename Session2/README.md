@@ -1,6 +1,5 @@
 # Session 2 
 
-<<<<<<< HEAD
 This project contains:
 * The presentation slides
 * Sample code (coding folder) 
@@ -19,5 +18,3 @@ The following category based examples are included in the sample code.
 * String
 * Tuples
 * Unions
-=======
->>>>>>> 22340c74e6d2d3835eea9f120c38005b6264c5d3
