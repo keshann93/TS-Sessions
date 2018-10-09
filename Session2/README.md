@@ -5,7 +5,7 @@ This project contains:
 * Sample code (coding folder) 
 * todo - should try out at home.
 
-[Run the Presentation](https://github.com/KeshShan/TS-Sessions/Session2/presentation/intrototypescript.html).
+[Run the Presentation](https://keshshan.github.io/TS-Session/Session2/presentation/intrototypescript.html).
 
 ## Examples
 
