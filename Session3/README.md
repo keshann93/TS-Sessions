@@ -4,7 +4,7 @@ This project contains:
 * The presentation slides
 * Sample code (coding folder) 
 
-[Run the Presentation](https://keshshan.github.io/TS-Session/Session2/presentation/intrototypescript.html).
+[Run the Presentation](https://keshshan.github.io/TS-Session/Session3/presentation/intrototypescript.html).
 
 ## Examples
 
